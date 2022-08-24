@@ -2,39 +2,52 @@ import { useEffect, useState } from "react";
 import Box from "../../../components/atoms/character-box";
 import CharacterLine from "../../../components/atoms/character-line";
 import CharacterScreen from "../../../components/atoms/character-screen";
+import Character from "../../../components/atoms/character-selected";
 import ScreenSize from "../../../components/atoms/screen-size";
 import api from "../../../services/api/api";
 
 const Bg = require("../../../assets/videos/bg.mp4");
+const Rick = require("../../../assets/imgs/characters/character01.png");
+const Morty = require("../../../assets/imgs/characters/character02.png");
+const Summer = require("../../../assets/imgs/characters/character03.png");
+const Beth = require("../../../assets/imgs/characters/character04.png");
+const Jerry = require("../../../assets/imgs/characters/character05.png");
 
 const SelectionScreen = () => {
-  // let characters: any = [];
-
   const [characters, setCharacters]: any = useState([]);
-
-  // const getCharacters = async () => {
-  //   for (let i = 1; i < 3; i++) {
-  //     await api.get(`${i}`).then(({ data }) => {
-  //       characters.push({
-  //         name: data.name,
-  //         gender: data.gender,
-  //         species: data.species,
-  //         image: data.image,
-  //       });
-  //     });
-  //   }
-  // };
+  const imgs = [
+    { src: Rick },
+    { src: Morty },
+    { src: Summer },
+    { src: Beth },
+    { src: Jerry },
+  ];
 
   const getBox = () => {
-    return characters.map((data: any) => (
-      data.id <8 ?  <Box key={data.id} src={data.image}></Box> : <></>
-    ));
+    return characters.map((data: any) =>
+      data.id < 13 ? (
+        <Box
+          key={data.id}
+          src={data.image}
+          className={"box" + data.id + " box"}
+        ></Box>
+      ) : (
+        <></>
+      )
+    );
   };
 
-  const getBox2 = () => {
-    return characters.map((data: any) => (
-      data.id >7 && data.id <15 ?  <Box key={data.id} src={data.image}></Box> : <></>
-    ));
+  const getImg = () => {
+    return characters.map((data: any) =>
+      data.id < 6 ? (
+        <Character
+          src={imgs[data.id - 1].src}
+          className={"character" + data.id}
+        ></Character>
+      ) : (
+        <></>
+      )
+    );
   };
 
   const getCharacters = async () => {
@@ -50,8 +63,10 @@ const SelectionScreen = () => {
   return (
     <ScreenSize>
       <CharacterScreen>
-        <CharacterLine>{getBox()}</CharacterLine>
-        <CharacterLine>{getBox2()}</CharacterLine>
+        <CharacterLine>
+          {getBox()}
+          {getImg()}
+        </CharacterLine>
       </CharacterScreen>
       <video
         autoPlay

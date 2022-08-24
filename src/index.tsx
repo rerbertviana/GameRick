@@ -1,5 +1,6 @@
 import { createRoot } from "react-dom/client";
 import SelectionScreen from './pages/selection-screen/components/selection-screen';
+import 'animate.css';
 
 const container = document.getElementById("root");
 const root = createRoot(container!); 

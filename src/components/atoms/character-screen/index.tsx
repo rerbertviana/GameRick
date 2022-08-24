@@ -1,13 +1,13 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 const CharacterScreen = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    width: 80%;
-    height: 85%;
-    z-index: 1;
-    /* background-color: blue; */
-`
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: auto;
+  height: 85%;
+  z-index: 2;
+  /* background-color: blue; */
+`;
 export default CharacterScreen;
