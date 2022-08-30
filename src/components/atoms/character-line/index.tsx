@@ -3,8 +3,8 @@ import styled from "styled-components";
 const CharacterLine = styled.div`
   display: flex;
   align-items: flex-end;
-  width: 700px;
-  min-width: 700px;
+  width: 690px;
+  min-width: 690px;
   flex-wrap: wrap;
   height: auto;
   /* background-color: red; */
